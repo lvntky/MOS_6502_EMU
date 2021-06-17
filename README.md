@@ -1,6 +1,6 @@
 # MOS 6502 Emulator
 
-[!gif](https://media.giphy.com/media/l0HUpt2s9Pclgt9Vm/giphy.gif)
+![gif](https://media.giphy.com/media/l0HUpt2s9Pclgt9Vm/giphy.gif)
 
 Yet another MOS 6502 CPU Emulator, coded in Rust.
 
@@ -14,7 +14,7 @@ Processors are one of the most important parts of computers. As a software devel
 
 ## Referances
 
-[!bugzmanov's tutorial](https://bugzmanov.github.io/nes_ebook/index.html)
+* ![bugzmanov's tutorial](https://bugzmanov.github.io/nes_ebook/index.html)
 
 ## License
 
