@@ -15,6 +15,8 @@ Processors are one of the most important parts of computers. As a software devel
 ## Referances
 
 * ![bugzmanov's tutorial](https://bugzmanov.github.io/nes_ebook/index.html)
+* ![Obelisk's Referance](http://www.obelisk.me.uk/6502/reference.html)
+* ![6502 Opcodes](http://www.6502.org/tutorials/6502opcodes.html)
 
 ## License
 
