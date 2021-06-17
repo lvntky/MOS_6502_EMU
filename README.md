@@ -18,7 +18,7 @@ Processors are one of the most important parts of computers. As a software devel
 
 ## License
 
-This projet is under MIT License
+This projet is under ![MIT](https://github.com/lvntky/MOS_6502_EMU/blob/master/LICENSE) License
 
 ## Contributing
 
