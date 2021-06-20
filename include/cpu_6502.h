@@ -23,17 +23,17 @@ typedef struct cpu_6502
    *     +--------- Negative                            *
    ******************************************************/
   /** All the flags are 1 by default **/
-  bool c_flag = true;
-  bool z_flag = true;
-  bool i_flag = true;
-  bool d_flag = true;
-  bool b_flag = true;
-  bool v_flag = true;
-  bool n_flag = true;
+  bool c_flag : 1;
+  bool z_flag : true;
+  bool i_flag : true;
+  bool d_flag : true;
+  bool b_flag : true;
+  bool v_flag : true;
+  bool n_flag : true;
 
   /** Helper Flags**/
-  bool page_crossed = true; // keep track of page crossing
-  bool enable_bcd = true; // Eanble/Disable BCD
+  bool page_crossed : true; // keep track of page crossing
+  bool enable_bcd : true; // Eanble/Disable BCD
   // bool cpu_65c02_mode = true;
 
   /** 6502 Registers **/
