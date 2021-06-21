@@ -23,7 +23,7 @@ typedef struct cpu_6502
    *     +--------- Negative                            *
    ******************************************************/
   /** All the flags are 1 by default **/
-  bool c_flag : 1;
+  bool c_flag : true;
   bool z_flag : true;
   bool i_flag : true;
   bool d_flag : true;
