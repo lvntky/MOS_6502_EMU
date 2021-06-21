@@ -2,7 +2,7 @@
 
 ![gif](https://media.giphy.com/media/l0HUpt2s9Pclgt9Vm/giphy.gif)
 
-Yet another MOS 6502 CPU Emulator, coded in Rust.
+Yet another MOS 6502 CPU Emulator, coded in C.
 
 ## What is 6502?
 
