@@ -104,3 +104,7 @@ flycheck_*.el
 
 #cmake build
 6502/build
+
+#vscode and jsons
+.vscode
+.json
