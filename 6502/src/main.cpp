@@ -31,6 +31,12 @@ struct Mem
 
 struct CPU
 {
+        void PrintStatus() const
+        {       
+	printf( "A: %d X: %d Y: %d\n", A, X, Y );
+	printf( "PC: %d SP: %d\n", PC, SP );
+	//printf( "PS: %d\n", PS );
+        }
 
         Word PC;        // Program counter
         Word SP;        // Stack Pointer
@@ -70,16 +76,31 @@ struct CPU
                 
                 memory.initialise();
         }
-
-        // Opcodes
-        static constexpr Byte INS_LDA_IM = 0XA9; 
-
+        
         // Fetch an instruction on the memory
         Byte fetchByte(u32& clockCycles, const Mem& memory){
                 Byte Data = memory[PC];
                 PC++;
                 clockCycles--;
                 return Data;
+        }
+
+        // read an instruction on the memory but dont increase the PC
+        Byte readByte(u32& clockCycles, Byte Address ,const Mem& memory){
+                Byte Data = memory[Address];
+                clockCycles--;
+                return Data;
+        }
+
+        // Opcodes
+        static constexpr Byte 
+                INS_LDA_IM = 0XA9,
+                INS_LD_ZP = 0XA5; 
+        
+        // LDA Status Flags
+        void LDASetStatus(){
+                Z = (A == 0);
+                N = (A & 0b10000000) > 0;
         }
 
         // CPU execute opcodes function
@@ -93,9 +114,14 @@ struct CPU
                                 // the value after comes instruction
                                 Byte value = fetchByte(clockCycles, memory);
                                 A = value;
-                                Z = (A == 0);
-                                N = (A & 0b10000000) > 0; 
+                                LDASetStatus(); 
                                 break;
+                        }
+                        case INS_LD_ZP:
+                        {
+                                Byte zeroPageAdress = fetchByte(clockCycles, memory);
+                                A = readByte(clockCycles, zeroPageAdress, memory);
+                                LDASetStatus();
                         }
                         default:
                         {
@@ -118,6 +144,6 @@ int main()
         // end -- inline tiny program
         cpu.execute(2, mem);
 
-        printf("The accumulator value: %d\n", cpu.A);
+        cpu.PrintStatus();
         return 0;
 }
